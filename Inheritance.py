@@ -43,8 +43,15 @@ class UnaryGate(LogicGate):
         LogicGate.__init__(self, n)
         self.pin = None
     def getPin(self):
-        if self.pin == 
-        return int(input("Enter PIN INPUT FOR GATE "+self.getLabel()+"-->"))
+        if self.pin == None:
+            return int(input("Enter PIN INPUT FOR GATE "+self.getLabel()+"-->"))
+        else:
+            return self.pin.getFrom().getOutput()
+    def setNextPin(self,source):
+        if self.pin == None:
+            self.pin = source
+        else:
+            print('Cannot connect:NO EMPTY PINS')
 
 class AndGate(BinaryGate):
     def __init__(self,n): #继承
@@ -88,3 +95,17 @@ class Connector:
         return self.fromgate
     def getTo(self):
         return self.togate
+
+
+# test part
+def main():
+   g1 = AndGate("G1")
+   g2 = AndGate("G2")
+   g3 = OrGate("G3")
+   g4 = NotGate("G4")
+   c1 = Connector(g1,g3)
+   c2 = Connector(g2,g3)
+   c3 = Connector(g3,g4)
+   print(g4.getOutput())
+   # print(c1)
+main()

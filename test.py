@@ -5,3 +5,4 @@ g2 = Inh.OrGate('G2')
 print(g2.getOutput())
 g3 = Inh.NotGate('G3')
 print(g3.getOutput())
+
