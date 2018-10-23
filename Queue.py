@@ -21,6 +21,6 @@ def hotPotato(namelist,num):
         simqueue.dequeue()
     return simqueue.dequeue()
 
-
+print(hotPotato(["Bill","David","Susan","Jane","Kent","Brad"],7))
 
 
